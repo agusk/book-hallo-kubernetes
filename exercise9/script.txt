@@ -1,0 +1,12 @@
+kubectl create -f my-deployment.yaml
+kubectl apply -f my-deployment.yaml
+
+kubectl get deployments
+kubectl get pods
+
+kubectl port-forward pod/my-deployment-<pod-hash> 8080:80
+
+kubectl delete -f my-deployment.yaml
+
+kubectl get deployments
+kubectl get pods

@@ -1,0 +1,8 @@
+oc login -u <username> <cluster-url>
+
+oc new-project nginx-project1
+oc new-app nginxinc/nginx-unprivileged --name=nginx-web1
+oc expose svc/nginx-web1
+oc get pods
+oc get route nginx-web1
+oc delete project nginx-project1

@@ -1,0 +1,16 @@
+kubectl apply -f cpu-load-deployment.yaml
+kubectl get deployment cpu-load-app
+
+kubectl apply -f cpu-load-service.yaml
+kubectl get svc
+
+kubectl apply -f cpu-load-hpa.yaml
+kubectl get hpa cpu-load-hpa
+
+kubectl get hpa cpu-load-hpa -w
+kubectl get deployment cpu-load-app
+
+
+kubectl delete -f cpu-load-deployment.yaml
+kubectl delete -f cpu-load-service.yaml
+kubectl delete -f cpu-load-hpa.yaml

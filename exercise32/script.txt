@@ -1,0 +1,33 @@
+kubectl apply -f nginx-app-deployment.yaml
+kubectl apply -f nginx-app-service.yaml
+kubectl apply -f nginx-app-ingress.yaml
+
+kubectl get pods 
+kubectl get services 
+kubectl get ingress 
+
+kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
+
+curl --resolve myapp.local:8080:127.0.0.1 http://myapp.local:8080
+
+kubectl delete deployment nginx-app-deployment 
+kubectl delete service nginx-app-service
+kubectl delete ingress nginx-app-ingress
+
+
+
+
+
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+
+kubectl apply -f networktool-deployment.yaml
+kubectl apply -f external-service.yaml
+
+kubectl get pods
+kubectl get services
+kubectl exec -it networktool-deployment-6fb88f64f4-p84gc -- /bin/bash
+
+curl -k -H "Host:cat-fact.herokuapp.com" https://external-service.default/facts/random?animal_type=cat&amount=2
+
+kubectl delete deployment networktool-deployment
+kubectl delete service external-service

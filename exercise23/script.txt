@@ -1,0 +1,22 @@
+kubectl create secret generic my-secret --from-literal=password=[password_plaintext]
+kubectl get secrets
+kubectl describe secret my-secret
+
+echo -n 'mypassword' | base64
+
+[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("mypassword"))
+
+
+kubectl apply -f my-secret2.yaml
+
+
+kubectl get secret my-secret -o jsonpath='{.data.password}' | base64 --decode
+
+kubectl get secret my-secret -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+
+
+kubectl delete secret my-secret
+kubectl delete secret my-secret2
+
+kubectl get secrets
+

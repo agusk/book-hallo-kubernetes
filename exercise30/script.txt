@@ -1,0 +1,12 @@
+kubectl apply -f postgres-pv.yaml
+kubectl apply -f postgres-pvc.yaml
+
+
+kubectl apply -f postgres-config.yaml
+kubectl apply -f postgres-deployment.yaml
+kubectl apply -f postgres-service.yaml
+
+
+kubectl apply -f pgadmin-deployment.yaml
+kubectl apply -f pgadmin-service.yaml
+

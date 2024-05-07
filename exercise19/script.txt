@@ -1,0 +1,8 @@
+kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-hpa.yaml
+
+kubectl get hpa
+kubectl get pods
+
+kubectl delete deployment nginx-deployment
+kubectl delete hpa nginx-hpa

@@ -1,0 +1,17 @@
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD -n database-group
+
+kubectl apply -f mysql-deployment.yaml
+kubectl apply -f mysql-service.yaml
+kubectl apply -f phpmyadmin-deployment.yaml
+kubectl apply -f phpmyadmin-service.yaml
+
+
+kubectl get pods 
+kubectl get services
+
+kubectl port-forward svc/phpmyadmin 8080:80 -n apps-group
+
+
+kubectl delete -f mysql-deployment.yaml
+kubectl delete -f mysql-service.yaml
+kubectl delete secret mysql-pass

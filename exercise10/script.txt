@@ -1,0 +1,10 @@
+kubectl apply -f multi-container-deployment.yaml
+kubectl get pods
+
+kubectl logs <pod-name> -c <container-name>
+
+kubectl logs multi-container-deployment-84df97b85b-r2p4f -c busybox
+kubectl logs multi-container-deployment-84df97b85b-r2p4f -c nginx
+
+kubectl delete -f multi-container-deployment.yaml
+kubectl get pods

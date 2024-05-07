@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin  # Sets Deployment name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      initContainers:
+      - name: create-pgadmin-folders
+        image: busybox
+        command: ['sh', '-c', 'mkdir -p /var/lib/pgadmin/sessions /var/lib/pgadmin/storage && chown -R 5050:5050 /var/lib/pgadmin']
+        volumeMounts:
+        - name: pgadmin-storage
+          mountPath: "/var/lib/pgadmin"    
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4          
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: a@email.com
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: pass123
+          volumeMounts:
+            - mountPath: /var/lib/pgadmin
+              name: pgadmin-storage
+      volumes:
+      - name: pgadmin-storage
+        persistentVolumeClaim:
+          claimName: pgadmin-pv-claim

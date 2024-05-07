@@ -1,0 +1,14 @@
+crc version
+crc version
+crc version
+
+
+@FOR /f "tokens=*" %i IN ('crc oc-env') DO @call %i
+oc login -u kubeadmin https://api.crc.testing:6443
+
+
+oc get nodes 
+oc get pods --all-namespaces
+
+crc stop
+crc delete

@@ -1,0 +1,6 @@
+kubectl apply -f container-resources.yaml
+kubectl get deployments
+kubectl describe deployment deployment-with-resources
+kubectl get pods --selector=app=myapp
+kubectl describe pod <pod-name>
+kubectl delete -f container-resources.yaml

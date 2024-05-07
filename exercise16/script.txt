@@ -1,0 +1,13 @@
+kubectl apply -f postgresql-deployment.yaml
+kubectl apply -f postgresql-service.yaml
+kubectl apply -f pgadmin-deployment.yaml
+kubectl apply -f pgadmin-service.yaml
+kubectl get services
+kubectl get pods
+kubectl get all
+
+kubectl delete deployment postgresql-deployment
+kubectl delete service postgresql-service
+kubectl delete deployment pgadmin-deployment
+kubectl delete service pgadmin-service
+

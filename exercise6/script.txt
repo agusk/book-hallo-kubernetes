@@ -1,0 +1,18 @@
+kubectl version
+kubectl version --short
+
+kubectl get namespaces
+kubectl create deployment nginx --image=nginx
+kubectl get deployments
+
+kubectl scale deployment nginx --replicas=3
+kubectl get pods
+
+kubectl expose deployment nginx --port=80
+kubectl get services
+
+kubectl port-forward pod/nginx-<pod-hash> 8080:80
+
+
+kubectl delete deployment nginx
+kubectl delete service nginx

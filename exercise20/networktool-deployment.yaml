@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: networktool-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: networktool
+  template:
+    metadata:
+      labels:
+        app: networktool
+    spec:
+      containers:
+        - name: networktool
+          image: wbitt/network-multitool

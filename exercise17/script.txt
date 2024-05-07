@@ -1,0 +1,13 @@
+kubectl apply -f mongodb-deployment.yaml
+kubectl apply -f mongodb-service.yaml
+kubectl apply -f nodejsapp-deployment.yaml
+kubectl apply -f nodejsapp-service.yaml
+kubectl get services
+kubectl get pods
+kubectl get all
+
+kubectl delete deployment mongodb-deployment
+kubectl delete service mongodb-service
+kubectl delete deployment nodejsapp-deployment
+kubectl delete service nodejsapp-service
+

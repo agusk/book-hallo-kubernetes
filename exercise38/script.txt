@@ -1,0 +1,16 @@
+kubectl apply -f nginx-deployment.yaml
+kubectl get deployment nginx-deployment
+
+
+kubectl apply -f nginx-service.yaml
+kubectl get svc
+
+kubectl apply -f nginx-hpa.yaml
+kubectl get hpa
+kubectl get deployment nginx-deployment
+
+kubectl get nodes
+
+kubectl delete -f nginx-hpa.yaml
+kubectl delete -f nginx-service.yaml
+kubectl delete -f nginx-deployment.yaml        

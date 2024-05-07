@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nginx-backup
+spec:
+  schedule: "*/1 * * * *"  # This cron schedule runs every minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: nginx
+            command: ["/bin/bash", "-c", "date; echo Backup Nginx Logs"]
+          restartPolicy: OnFailure

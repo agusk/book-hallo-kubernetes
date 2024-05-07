@@ -1,0 +1,10 @@
+kubectl apply -f multiple-deployments.yaml
+kubectl get deployments
+kubectl describe deployment deployment-1
+
+
+kubectl get pods --selector=app=app-1
+kubectl get pods --selector=app=app-2
+
+
+kubectl delete -f multiple-deployments.yaml

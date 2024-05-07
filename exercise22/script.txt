@@ -1,0 +1,18 @@
+kubectl create namespace database-group
+kubectl create namespace apps-group
+kubectl get namespaces
+
+kubectl apply -f mysql-deployment-group.yaml
+kubectl apply -f mysql-service-group.yaml
+
+kubectl get pods -n database-group
+kubectl get svc -n database-group
+
+kubectl apply -f phpmyadmin-deployment-group.yaml
+kubectl apply -f phpmyadmin-service-group.yaml
+
+kubectl get pods -n apps-group
+kubectl get svc -n apps-group
+
+kubectl delete namespace database-group
+kubectl delete namespace apps-group

@@ -1,0 +1,11 @@
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myapp.local.key -out myapp.local.crt -subj "/CN=myapp.local/O=myapp.local"
+
+kubectl create secret tls myapp-local-tls --key myapp.local.key --cert myapp.local.crt -n default
+
+kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-service.yaml
+
+kubectl get deployments
+kubectl get pods
+kubectl get services
+

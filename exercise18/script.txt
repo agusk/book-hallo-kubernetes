@@ -1,0 +1,13 @@
+kubectl create namespace hallo-namespace
+kubectl get namespaces
+kubectl apply -f nginx-deployment.yaml -n hallo-namespace
+kubectl apply -f nginx-service.yaml -n hallo-namespace
+
+kubectl get deployments -n hallo-namespace
+kubectl get services -n hallo-namespace
+
+
+kubectl delete deployment nginx-deployment -n hallo-namespace
+kubectl delete service nginx-service -n hallo-namespace
+
+kubectl delete namespace hallo-namespace

@@ -1,0 +1,22 @@
+kubectl config get-contexts
+
+kubectl config use-context docker-desktop
+
+kubectl get nodes
+
+# Let's assume your downloaded file is named 'rancher-kubeconfig.yaml'
+kubectl config --kubeconfig=rancher-kubeconfig.yaml view --flatten >> $HOME/.kube/config
+
+mkdir -p $HOME/.kube
+
+
+export KUBECONFIG=/path/to/rancher-kubeconfig.yaml
+
+kubectl --kubeconfig=/path/to/rancher-kubeconfig.yaml get nodes
+
+
+kubectl config use-context <context-name>
+
+kubectl cluster-info
+
+kubectl get nodes

@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mystorageclass-demo
+provisioner: docker.io/hostpath # Replace with your storage provisioner
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

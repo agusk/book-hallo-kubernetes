@@ -1,0 +1,11 @@
+kubectl apply -f hello-world-cronjob.yaml
+kubectl get cronjobs
+kubectl get jobs --watch
+
+
+kubectl apply -f nginx-backup-cronjob.yaml
+kubectl get cronjobs
+kubectl get jobs --watch
+
+kubectl delete cronjob hello-world
+kubectl delete cronjob nginx-backup

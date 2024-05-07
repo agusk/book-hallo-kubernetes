@@ -1,0 +1,13 @@
+kubectl apply -f mysql-deployment.yaml
+kubectl apply -f mysql-service.yaml
+kubectl apply -f phpmyadmin-deployment.yaml
+kubectl apply -f phpmyadmin-service.yaml
+kubectl get services
+kubectl get pods
+kubectl get all
+
+kubectl delete deployment mysql-deployment
+kubectl delete service mysql-service
+kubectl delete deployment phpmyadmin-deployment
+kubectl delete service phpmyadmin-service
+

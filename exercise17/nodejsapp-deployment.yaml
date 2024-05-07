@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejsapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejsapp
+  template:
+    metadata:
+      labels:
+        app: nodejsapp
+    spec:
+      containers:
+      - name: nodejsapp
+        image: docker.io/agusk/todoappenv:latest
+        env:
+          - name: NODE_ENV
+            value: development
+          - name: DEBUG
+            value: todoapp:*
+          - name: PORT
+            value: "3000"
+          - name: MONGO_URL
+            value: mongodb://mongodb-service:27017/todoapp
+        ports:
+          - containerPort: 3000

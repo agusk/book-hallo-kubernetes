@@ -1,0 +1,9 @@
+kubectl get pods -n ingress-nginx
+kubectl get pods -n kubernetes-dashboard
+
+
+kubectl apply -f dashboard-ingress.yaml
+kubectl get ingress -n kubernetes-dashboard
+
+
+kubectl -n kubernetes-dashboard create token admin-user

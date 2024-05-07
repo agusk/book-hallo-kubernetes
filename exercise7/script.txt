@@ -1,0 +1,12 @@
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+helm install my-nginx bitnami/nginx
+
+helm pull bitnami/nginx --untar
+helm install customized-nginx ./nginx
+
+helm rollback customized-nginx 1
+
+helm uninstall my-nginx
+helm uninstall customized-nginx

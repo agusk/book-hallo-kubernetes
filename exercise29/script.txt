@@ -1,0 +1,22 @@
+kubectl apply -f nginx-pv.yaml
+kubectl get pv
+kubectl apply -f nginx-pvc.yaml
+kubectl get pvc
+
+
+kubectl apply -f nginx-deployment.yaml
+
+kubectl get pods
+kubectl describe pod [POD_NAME]
+
+kubectl apply -f nginx-service.yaml     
+kubectl get svc
+
+
+kubectl delete pod [POD_NAME]
+kubectl get pods
+
+
+kubectl delete pod mypod
+kubectl delete pvc example-pvc
+kubectl delete pv example-pv

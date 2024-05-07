@@ -1,0 +1,9 @@
+kubectl create configmap my-config --from-literal=key1=value1 --from-literal=key2=value2
+
+kubectl apply -f configmapdemo.yaml
+kubectl get pods
+kubectl exec --stdin --tty my-pod -- /bin/bash
+
+> echo "$MY_CONFIG"
+
+kubectl delete -f configmapdemo.yaml

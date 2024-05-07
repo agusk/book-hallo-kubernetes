@@ -1,0 +1,17 @@
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+kubectl get pods -n kubernetes-dashboard
+
+kubectl proxy
+
+kubectl apply -f dashboard-adminuser.yaml
+kubectl apply -f dashboard-cluster-role-banding.yaml
+
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep [your-service-account-name] | awk '{print $1}')
+
+kubectl -n kubernetes-dashboard create token admin-user
+
+
+kubectl delete -f dashboard-cluster-role-banding.yaml
+kubectl delete -f dashboard-adminuser.yaml
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml

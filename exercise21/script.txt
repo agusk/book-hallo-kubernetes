@@ -1,0 +1,13 @@
+kubectl create namespace test-ilmudata
+kubectl get namespaces
+kubectl describe namespace test-ilmudata
+
+kubectl label namespaces test-ilmudata environment=test
+kubectl describe namespace test-ilmudata
+
+kubectl run nginx --image=nginx --namespace=test-ilmudata
+kubectl run nginx --image=nginx -n test-ilmudata
+kubectl get pods -n test-ilmudata
+
+kubectl delete namespace test-ilmudata
+kubectl get namespaces

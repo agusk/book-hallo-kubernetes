@@ -1,0 +1,11 @@
+kubectl apply -f networktool-deployment.yaml
+kubectl apply -f external-service.yaml
+
+kubectl get pods
+kubectl get services
+kubectl exec -it networktool-deployment-6fb88f64f4-p84gc -- /bin/bash
+
+curl -k -H "Host:cat-fact.herokuapp.com" https://external-service.default/facts/random?animal_type=cat&amount=2
+
+kubectl delete deployment networktool-deployment
+kubectl delete service external-service
